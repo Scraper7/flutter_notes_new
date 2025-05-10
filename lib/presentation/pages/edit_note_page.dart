@@ -22,7 +22,6 @@ class _EditNotePageState extends State<EditNotePage> {
     titleController = TextEditingController(text: widget.note?.title ?? '');
     contentController = TextEditingController(text: widget.note?.content ?? '');
 
-    // Открываем клавиатуру на поле ввода
     WidgetsBinding.instance.addPostFrameCallback((_) {
       FocusScope.of(context).requestFocus(contentFocusNode);
     });
