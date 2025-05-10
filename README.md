@@ -1,22 +1,55 @@
 # flutter_test_task_1
 
-Как запустить проект?
-1) Убедитесь, что у вас установлен Flutter SDK (версия 3.19.5 или новее).
+# Notes App
 
-2) Клонируйте репозиторий:
-git clone https://github.com/Scraper7/flutter_notes
+Простое приложение на Flutter для создания, редактирования и удаления заметок. Для локального хранения используется SharedPreferences, а управление состоянием — через паттерн BLoC. Приложение поддерживает сортировку заметок и переключение тем.
 
-3) Установите зависимости
-    flutter pub get
-4) Запустите эмулятор на устройстве
-    flutter run
-
-Структура проекта
+## Структура проекта
 
 lib/
-|-- data\local_storage 
-|-- domain\models
-|-- domain\repositories
-|-- presentation\cubit
-|-- presentation\pages
-|-- main.dart 
+├── data/
+│ └── local_storage/
+│ └── notes_local_data_source.dart # Локальное хранилище заметок с использованием SharedPreferences
+├── domain/
+│ ├── models/
+│ │ └── note.dart # Модель заметки
+│ ├── repositories/
+│ │ ├── note_repository.dart # Абстрактный репозиторий для заметок
+│ │ └── note_repository_impl.dart # Реализация репозитория с использованием локального хранилища
+├── presentation/
+│ ├── cubit/
+│ │ ├── note_cubit.dart # Управление состоянием заметок (Cubit)
+│ │ ├── notes_state.dart # Состояния для NoteCubit
+│ │ └── theme_cubit.dart # Cubit для управления темой
+│ ├── pages/
+│ │ ├── edit_note_page.dart # Страница для создания/редактирования заметки
+│ │ └── home_page.dart # Главная страница с списком заметок
+├── main.dart # Точка входа в приложение
+
+## Функции
+
+- Создание, редактирование и удаление заметок
+- Локальное хранение заметок с использованием SharedPreferences
+- Сортировка заметок по дате создания (от новых к старым)
+- Переключение между светлой и тёмной темами
+
+## Начало работы
+
+1. Клонируйте репозиторий:
+git clone https://github.com/Scraper7/flutter_notes_new
+2. Установите зависимости:
+flutter pub get
+3. Запустите приложение:
+flutter run
+
+## Архитектура
+
+- Используется архитектура **MVVM** (Model-View-ViewModel) для разделения ответственности.
+- Для управления состоянием в слое представления используется **Cubit**.
+- Для локального хранения заметок используется **SharedPreferences**.
+
+## Зависимости
+
+- `flutter_bloc`: Для управления состоянием через Cubit
+- `shared_preferences`: Для локального хранения данных
+- `uuid`: Для генерации уникальных ID заметок

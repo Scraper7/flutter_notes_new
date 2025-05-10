@@ -15,7 +15,6 @@ class Note {
     required this.dateCreated,
   });
 
-  // Сериализация
   Map<String, dynamic> toMap() {
     return {
       'id': id,
