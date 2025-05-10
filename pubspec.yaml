@@ -1,0 +1,32 @@
+name: flutter_test_task_1
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  bloc_test: ^10.0.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  intl: ^0.20.2
+  mockito: ^5.4.6
+  shared_preferences: ^2.5.3
+  uuid: ^4.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+
+flutter_localizations:
+  sdk: flutter
+  
+intl: ^0.18.1
+
